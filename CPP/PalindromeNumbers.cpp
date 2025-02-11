@@ -30,7 +30,6 @@
  * At least here, we're only using one string. See the comments inside the
  * Solution class:
  */
-
 #include<iostream>
 using namespace std;
 
