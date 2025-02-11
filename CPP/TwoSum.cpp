@@ -17,6 +17,10 @@
  * There is exactly one solution for each input.
  * You can’t use the same number twice.
  * The answer can be in any order.
+ *
+ * This includes not only the successful code snippet that can be run
+ * on the Leetcode website, but also a way to run said code OUTSIDE
+ * of Leetcode!
  */
 #include<iostream>
 #include <vector>
@@ -49,47 +53,43 @@ public:
 // Boilerplate for running testcases outside the leetcode site
 int main() {
     Solution s;
-    std::vector<int> nums = {2, 7, 11, 15};
+    vector<int> nums = {2, 7, 11, 15};
     int target = 9;
-    std::vector<int> result = s.twoSum(nums, target);
-
+    vector<int> result = s.twoSum(nums, target);
     if (!result.empty()) {
-        std::cout << "Indices: ";
+        cout << "Indices: ";
         for (int index : result) {
-            std::cout << index << " ";
+            cout << index << " ";
         }
-        std::cout << std::endl;
+        cout << std::endl;
     } else {
-        std::cout << "No solution found." << std::endl;
+        cout << "No solution found." << std::endl;
     }
-
 
     nums = {3,2,4};
     target = 6;
     result = s.twoSum(nums, target);
-
     if (!result.empty()) {
-        std::cout << "Indices: ";
+        cout << "Indices: ";
         for (int index : result) {
-            std::cout << index << " ";
+            cout << index << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
     } else {
-        std::cout << "No solution found." << std::endl;
+        cout << "No solution found." << std::endl;
     }
 
     nums = {3,3};
     target = 6;
     result = s.twoSum(nums, target);
-
     if (!result.empty()) {
-        std::cout << "Indices: ";
+        cout << "Indices: ";
         for (int index : result) {
-            std::cout << index << " ";
+            cout << index << " ";
         }
-        std::cout << std::endl;
+        cout << std::endl;
     } else {
-        std::cout << "No solution found." << std::endl;
+        cout << "No solution found." << std::endl;
     }
     return 0;
 }
