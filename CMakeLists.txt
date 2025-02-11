@@ -3,4 +3,6 @@ project(Leetcode_Dump)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Leetcode_Dump main.cpp)
+add_executable(Leetcode_Dump
+        CPP/TwoSum.cpp
+)
