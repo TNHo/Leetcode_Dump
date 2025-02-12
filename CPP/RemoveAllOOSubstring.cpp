@@ -1,4 +1,6 @@
 /*
+ * Problem: 1910. Remove All Occurrences of a Substring
+ * 
  * Given two strings s and part, perform the following operation on s until all occurrences of the substring part are removed:
  *
  * Find the leftmost occurrence of the substring part and remove it from s.
@@ -37,85 +39,22 @@
 #include<iostream>
 using namespace std;
 
+/*
+ * After hours of suffering, I had a family member of mine help...
+ * I still don't quite understand this solution either, as it required digging through
+ * online references and using stuff my C++ class had not gone through yet.
+ * See uses of size_t and npos. WTH is that?!
+ * I should attempt a java version. I could probably do that without help... Maybe?
+ */
 class Solution {
 public:
     string removeOccurrences(string s, string part) {
-        // starting variables
-        cout << "Starting at " << s << endl;
-        int i = 0, start = 0, partStart = 0, counter = 0, saved = 0;
-        for(i = 0; i < s.size(); i++) {
-            tempexit: // My worst programming warcrime yet. Very dirty solution.
-            cout << "i at " << i << endl;
-            if(s.at(i)==part.at(0)) { // The very first instance in which sub 0 of part
-                // matches with a part of s, in which we will proceed
-                start = i; // save positions
-                saved = i;
-                counter++;
-                if(s.at(start + 1)!=part.at(1)) {
-                    cout << "NOPE" << endl;
-                    i++;
-                    // Use of a goto?! *GASP* NOOOOO!!! DON'T DO THAT!!!
-                    goto tempexit;
-                }
-                cout << "YES" << endl;
-                // Loop to check for matches in s starting from this initial point until either
-                // we figure out this part of s matches part or it doesn't and we move on
-                while(partStart!=(part.size()-1)) {
-                    cout << "letter at " << s.at(start) << endl;
-                    start++;
-                    partStart++;
-                    if(s.at(i)==part.at(partStart))
-                        counter++;
-                    else
-                        goto escape;
-                }
-                escape:
-                // Delete that substring
-                if(partStart == (part.size()-1)) {
-                    s.erase(saved, partStart+1);
-                    cout << s << endl;
-                    // reset positions
-                    i = 0;
-                    start = 0;
-                    saved = 0;
-                    partStart = 0;
-                    counter = 0;
-                }
+        while (true) {
+            size_t pos = s.find(part);  // Find the first occurrence of part
+            if (pos == string::npos) { // If not found, exit the loop
+                break;
             }
-        }
-
-        // OHHHHH NOOOOOOO!!!! REPEATED CODE!!!!!
-        // The first loop always leaves out one substring
-        // so a repeat is nessecary in order to complete this...
-        for(i = 0; i < s.size(); i++) {
-            tempexita:
-            if(s.at(i)==part.at(0)) {
-                start = i;
-                saved = i;
-                counter++;
-                if(s.at(start + 1)!=part.at(1)) {
-                    i++;
-                    goto tempexita;
-                }
-                while(partStart!=(part.size()-1)) {
-                    start++;
-                    partStart++;
-                    if(s.at(i)==part.at(partStart))
-                        counter++;
-                    else
-                        break;
-                }
-                if(partStart == (part.size()-1)) {
-                    s.erase(saved, partStart+1);
-                    cout << s << endl;
-                    i = 0;
-                    start = 0;
-                    saved = 0;
-                    partStart = 0;
-                    counter = 0;
-                }
-            }
-            // AAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHH
+            s.erase(pos, part.length()); // Remove the occurrence
         }
         return s;
     }
