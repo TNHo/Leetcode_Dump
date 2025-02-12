@@ -6,4 +6,5 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(Leetcode_Dump
         CPP/TwoSum.cpp
         CPP/PalindromeNumbers.cpp
+        CPP/RemoveAllOOSubstring.cpp
 )
