@@ -29,6 +29,8 @@
  *
  * At least here, we're only using one string. See the comments inside the
  * Solution class:
+ *
+ * https://leetcode.com/problems/palindrome-number/
  */
 #include<iostream>
 using namespace std;

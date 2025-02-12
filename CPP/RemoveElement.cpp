@@ -42,7 +42,7 @@
  *    0 <= nums[i] <= 50
  *    0 <= val <= 100
  *
- *
+ * https://leetcode.com/problems/remove-element/
  */
 #include<iostream>
 #include<vector>
